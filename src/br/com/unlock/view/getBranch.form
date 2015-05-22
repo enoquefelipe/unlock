@@ -24,29 +24,31 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="106" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
                       <Component id="jTExit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTBranch" min="-2" pref="192" max="-2" attributes="0"/>
-                          <Component id="jTName" min="-2" pref="192" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLBranch" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jBLock" min="-2" pref="93" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBunlock" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jTBranch" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-              <Component id="jBunlock" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+              <Component id="jLTitle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,12 +57,16 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLTitle" min="-2" pref="34" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Component id="jTName" min="-2" pref="29" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTBranch" min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTBranch" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="jLBranch" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jBunlock" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jBunlock" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBLock" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="80" max="32767" attributes="0"/>
               <Component id="jTExit" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -99,7 +105,19 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTExitActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTName">
+    <Component class="javax.swing.JLabel" name="jLBranch">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RAMAL &gt;&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBLock">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bloquear"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jBLockMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBLockActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

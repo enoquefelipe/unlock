@@ -10,11 +10,9 @@ import javax.swing.JOptionPane;
 public class getBranch extends javax.swing.JFrame {
 
     private static String branch;
-    private static String name;
 
     public getBranch() {
         initComponents();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -25,7 +23,8 @@ public class getBranch extends javax.swing.JFrame {
         jTBranch = new javax.swing.JTextField();
         jBunlock = new javax.swing.JButton();
         jTExit = new javax.swing.JToggleButton();
-        jTName = new javax.swing.JTextField();
+        jLBranch = new javax.swing.JLabel();
+        jBLock = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,40 +56,58 @@ public class getBranch extends javax.swing.JFrame {
             }
         });
 
+        jLBranch.setText("RAMAL >>");
+
+        jBLock.setText("Bloquear");
+        jBLock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBLockMouseClicked(evt);
+            }
+        });
+        jBLock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLockActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLTitle)
-                        .addGap(137, 137, 137))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTExit)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTBranch, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTName, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(104, 104, 104))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(324, 324, 324)
+                        .addComponent(jTExit))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLBranch)
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBLock, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBunlock))
+                            .addComponent(jTBranch))))
+                .addGap(0, 27, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jBunlock)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(129, 129, 129)
+                .addComponent(jLTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jTName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTBranch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTBranch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLBranch))
                 .addGap(18, 18, 18)
-                .addComponent(jBunlock)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBunlock)
+                    .addComponent(jBLock))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jTExit)
                 .addContainerGap())
@@ -124,6 +141,18 @@ public class getBranch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTBranchActionPerformed
 
+    private void jBLockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBLockMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBLockMouseClicked
+
+    private void jBLockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLockActionPerformed
+        try {
+            lock();
+        } catch (IOException ex) {
+            Logger.getLogger(getBranch.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBLockActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -138,22 +167,34 @@ public class getBranch extends javax.swing.JFrame {
 
     public void unlock() throws IOException {
         getBranch();
-        if (branch.equals("") || (name.equals(""))) {
-            JOptionPane.showMessageDialog(null, "Preencha as informações!");
+        if (branch.equals("")) {
+            JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
             try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
-                gravarArq.printf("modiM " + branch + " " + name + " 1   " + branch + " 4               0");
+                gravarArq.printf("modiM " + branch + " RAMAL DESBLOQUEADO 1   " + branch + " 4               0");
             }
-            System.out.printf("\n Ramal desbloqueado com sucesso!, o arquivo foi salvo em \"c:\\check." + branch + "a.txt\".\n");
-            JOptionPane.showMessageDialog(null, "Ramal desbloqueado com sucesso!");
+            JOptionPane.showMessageDialog(null, "RAMAL DESBLOQUEADO COM SUCESSO!");
+            finish();
+        }
+    }
+
+    public void lock() throws IOException {
+        getBranch();
+        if (branch.equals("")) {
+            JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
+        } else {
+            try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
+                PrintWriter gravarArq = new PrintWriter(arq);
+                gravarArq.printf("modiM " + branch + " RAMAL DESBLOQUEADO 1   " + branch + " 8               0");
+            }
+            JOptionPane.showMessageDialog(null, "RAMAL BLOQUEADO COM SUCESSO!");
             finish();
         }
     }
 
     public void getBranch() {
-        branch = jTBranch.getText();
-        name = jTName.getText().toUpperCase();
+        branch = jTBranch.getText().toUpperCase();
     }
 
     public void finish() {
@@ -161,10 +202,11 @@ public class getBranch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBLock;
     private javax.swing.JButton jBunlock;
+    private javax.swing.JLabel jLBranch;
     private javax.swing.JLabel jLTitle;
     private javax.swing.JTextField jTBranch;
     private javax.swing.JToggleButton jTExit;
-    private javax.swing.JTextField jTName;
     // End of variables declaration//GEN-END:variables
 }
