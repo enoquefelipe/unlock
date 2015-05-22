@@ -186,7 +186,7 @@ public class getBranch extends javax.swing.JFrame {
         } else {
             try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
-                gravarArq.printf("modiM " + branch + " RAMAL DESBLOQUEADO 1   " + branch + " 8               0");
+                gravarArq.printf("modiM " + branch + " RAMAL BLOQUEADO 1   " + branch + " 8               0");
             }
             JOptionPane.showMessageDialog(null, "RAMAL BLOQUEADO COM SUCESSO!");
             finish();
