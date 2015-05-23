@@ -25,24 +25,17 @@ public class getBranch extends javax.swing.JFrame {
     private void initComponents() {
 
         jLTitle = new javax.swing.JLabel();
-        jTBranch = new javax.swing.JTextField();
         jBunlock = new javax.swing.JButton();
         jTExit = new javax.swing.JToggleButton();
         jLBranch = new javax.swing.JLabel();
         jBLock = new javax.swing.JButton();
         jLBy = new javax.swing.JLabel();
+        jFBranch = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLTitle.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLTitle.setText("Desbloqueio de Ramal");
-
-        jTBranch.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTBranch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTBranchActionPerformed(evt);
-            }
-        });
 
         jBunlock.setText("Desbloquear");
         jBunlock.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,6 +72,13 @@ public class getBranch extends javax.swing.JFrame {
 
         jLBy.setText("Powered by @eleal");
 
+        try {
+            jFBranch.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFBranch.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,7 +95,7 @@ public class getBranch extends javax.swing.JFrame {
                         .addComponent(jLBranch)
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTBranch)
+                            .addComponent(jFBranch)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBLock, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -111,15 +111,15 @@ public class getBranch extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTBranch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLBranch))
+                    .addComponent(jLBranch)
+                    .addComponent(jFBranch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBunlock)
                     .addComponent(jBLock))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTExit, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLBy, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -150,10 +150,6 @@ public class getBranch extends javax.swing.JFrame {
         finish();
     }//GEN-LAST:event_jTExitActionPerformed
 
-    private void jTBranchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTBranchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTBranchActionPerformed
-
     private void jBLockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBLockMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jBLockMouseClicked
@@ -180,7 +176,7 @@ public class getBranch extends javax.swing.JFrame {
 
     public void unlock() throws IOException {
         getBranch();
-        if (branch.equals("")) {
+        if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
             try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
@@ -194,12 +190,12 @@ public class getBranch extends javax.swing.JFrame {
 
     public void lock() throws IOException {
         getBranch();
-        if (branch.equals("")) {
+        if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
             try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
-                gravarArq.printf("modiM " + branch + " RAMAL BLOQUEADO 1   " + branch + " 8               0");
+                gravarArq.printf("modiM " + branch + " RAMAL BLaqOQUEADO 1   " + branch + " 8               0");
             }
             JOptionPane.showMessageDialog(null, "RAMAL BLOQUEADO COM SUCESSO!");
             finish();
@@ -207,7 +203,7 @@ public class getBranch extends javax.swing.JFrame {
     }
 
     public void getBranch() {
-        branch = jTBranch.getText().toUpperCase();
+        branch = jFBranch.getText().toUpperCase();
     }
 
     public void finish() {
@@ -217,10 +213,10 @@ public class getBranch extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBLock;
     private javax.swing.JButton jBunlock;
+    private javax.swing.JFormattedTextField jFBranch;
     private javax.swing.JLabel jLBranch;
     private javax.swing.JLabel jLBy;
     private javax.swing.JLabel jLTitle;
-    private javax.swing.JTextField jTBranch;
     private javax.swing.JToggleButton jTExit;
     // End of variables declaration//GEN-END:variables
 }
