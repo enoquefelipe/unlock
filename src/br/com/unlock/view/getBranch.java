@@ -25,12 +25,14 @@ public class getBranch extends javax.swing.JFrame {
         jTExit = new javax.swing.JToggleButton();
         jLBranch = new javax.swing.JLabel();
         jBLock = new javax.swing.JButton();
+        jLBy = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLTitle.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLTitle.setText("Desbloqueio de Ramal");
 
+        jTBranch.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTBranch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTBranchActionPerformed(evt);
@@ -70,6 +72,8 @@ public class getBranch extends javax.swing.JFrame {
             }
         });
 
+        jLBy.setText("Powered by @eleal");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,21 +81,23 @@ public class getBranch extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
+                        .addGap(158, 158, 158)
+                        .addComponent(jLBy)
+                        .addGap(74, 74, 74)
                         .addComponent(jTExit))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLBranch)
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTBranch)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBLock, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jBunlock))
-                            .addComponent(jTBranch))))
+                                .addComponent(jBunlock)))))
                 .addGap(0, 27, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(133, 133, 133)
                 .addComponent(jLTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -109,7 +115,9 @@ public class getBranch extends javax.swing.JFrame {
                     .addComponent(jBunlock)
                     .addComponent(jBLock))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jTExit)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTExit, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLBy, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -205,6 +213,7 @@ public class getBranch extends javax.swing.JFrame {
     private javax.swing.JButton jBLock;
     private javax.swing.JButton jBunlock;
     private javax.swing.JLabel jLBranch;
+    private javax.swing.JLabel jLBy;
     private javax.swing.JLabel jLTitle;
     private javax.swing.JTextField jTBranch;
     private javax.swing.JToggleButton jTExit;
