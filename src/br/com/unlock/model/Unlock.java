@@ -1,5 +1,10 @@
 package br.com.unlock.model;
 
+/**
+ *
+ * @author Enoque Felipe
+ */
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +26,5 @@ public class Unlock {
         gravarArq.printf("+-------------+%n");
         arq.close();
         System.out.printf("\n RAMAL DESBLOQUEADO COM SUCESSO, TXT SALVO EM \"c:\\tabuada.txt\".\n", n);
-
-       // return "";
     }
 }

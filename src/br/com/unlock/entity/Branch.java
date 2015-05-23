@@ -1,5 +1,10 @@
 package br.com.unlock.entity;
 
+/**
+ *
+ * @author Enoque Felipe
+ */
+
 public class Branch {
 
     private String branch;
