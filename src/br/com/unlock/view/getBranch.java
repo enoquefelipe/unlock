@@ -4,7 +4,7 @@ package br.com.unlock.view;
  *
  * @author Enoque Felipe
  */
-
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -179,12 +179,16 @@ public class getBranch extends javax.swing.JFrame {
         if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
-            try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
+            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_envio_novo\\check." + branch + "a.txt")) {
+//            try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
                 gravarArq.printf("modiM " + branch + " RAMAL DESBLOQUEADO 1   " + branch + " 4               0");
+                JOptionPane.showMessageDialog(null, "RAMAL DESBLOQUEADO COM SUCESSO!");
+                finish();
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "Erro: " + e);
+                 finish();
             }
-            JOptionPane.showMessageDialog(null, "RAMAL DESBLOQUEADO COM SUCESSO!");
-            finish();
         }
     }
 
@@ -193,12 +197,16 @@ public class getBranch extends javax.swing.JFrame {
         if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
-            try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
+            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_envio_novo\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
                 gravarArq.printf("modiM " + branch + " RAMAL BLaqOQUEADO 1   " + branch + " 8               0");
+
+                JOptionPane.showMessageDialog(null, "RAMAL BLOQUEADO COM SUCESSO!");
+                finish();
+            } catch (FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null,"Erro: " +  e);
+                 finish();
             }
-            JOptionPane.showMessageDialog(null, "RAMAL BLOQUEADO COM SUCESSO!");
-            finish();
         }
     }
 
