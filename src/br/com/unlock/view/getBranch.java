@@ -4,10 +4,12 @@ package br.com.unlock.view;
  *
  * @author Enoque Felipe
  */
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -179,15 +181,20 @@ public class getBranch extends javax.swing.JFrame {
         if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
-            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + "a.txt")) {
-//            try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
+            
+            String OldName = "E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + "a.txt";
+            String newName = "E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + ".txt";
+
+            try (Writer arq = new FileWriter(OldName)) {
                 PrintWriter gravarArq = new PrintWriter(arq);
                 gravarArq.printf("modiM " + branch + " RAMAL DESBLOQUEADO 1   " + branch + " 4               0");
                 JOptionPane.showMessageDialog(null, "RAMAL DESBLOQUEADO COM SUCESSO!");
+                arq.close();
+                new File(OldName).renameTo(new File(newName));
                 finish();
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(null, "Erro: " + e);
-                 finish();
+                finish();
             }
         }
     }
@@ -197,15 +204,20 @@ public class getBranch extends javax.swing.JFrame {
         if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
-            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + "a.txt")) {
-                PrintWriter gravarArq = new PrintWriter(arq);
-                gravarArq.printf("modiM " + branch + " RAMAL BLaqOQUEADO 1   " + branch + " 8               0");
+            
+            String OldName = "E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + "a.txt";
+            String newName = "E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + ".txt";
 
+            try (FileWriter arq = new FileWriter(OldName)) {
+                PrintWriter gravarArq = new PrintWriter(arq);
+                gravarArq.printf("modiM " + branch + " RAMAL BLOQUEADO 1   " + branch + " 8               0");
                 JOptionPane.showMessageDialog(null, "RAMAL BLOQUEADO COM SUCESSO!");
+                arq.close();
+                new File(OldName).renameTo(new File(newName));
                 finish();
             } catch (FileNotFoundException e) {
-                JOptionPane.showMessageDialog(null,"Erro: " +  e);
-                 finish();
+                JOptionPane.showMessageDialog(null, "Erro: " + e);
+                finish();
             }
         }
     }
