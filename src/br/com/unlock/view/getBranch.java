@@ -179,7 +179,7 @@ public class getBranch extends javax.swing.JFrame {
         if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
-            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_envio_novo\\check." + branch + "a.txt")) {
+            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + "a.txt")) {
 //            try (FileWriter arq = new FileWriter("c:\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
                 gravarArq.printf("modiM " + branch + " RAMAL DESBLOQUEADO 1   " + branch + " 4               0");
@@ -197,7 +197,7 @@ public class getBranch extends javax.swing.JFrame {
         if (branch.equals("    ")) {
             JOptionPane.showMessageDialog(null, "DIGITE O RAMAL!");
         } else {
-            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_envio_novo\\check." + branch + "a.txt")) {
+            try (FileWriter arq = new FileWriter("E:\\MV2000\\pari\\mvintegracao\\diretorio_leit\\check." + branch + "a.txt")) {
                 PrintWriter gravarArq = new PrintWriter(arq);
                 gravarArq.printf("modiM " + branch + " RAMAL BLaqOQUEADO 1   " + branch + " 8               0");
 
